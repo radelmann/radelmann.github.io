@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/query-ui.js"></script>
+    <script src="js/data_generator.js"></script>
+    <script src="js/app.js"></script>
+    <title>Twittler</title>
+    <link rel="shortcut icon" href="https://www.twitter.com/favicon.ico">
+  </head>
+  <body>
+    <header class="header container group">
+      <h1 class="logo"><img src="assets/images/twitter-logo-cutout.png" class='logoImg'>Twittler</h1>
+    </header>
+    <section class="row">
+      <div class="container">
+        
+        <table>
+          <tr>
+            <td valign='top' style='width:200px;'>
+              <div class='users'>
+              </div>
+
+              <table class='tweetPrompt'>
+                <tr>
+                  <td>
+                    <textarea placeholder="What's on your mind?" rows=10 class='tweetInput hidden' type="textbox"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td align='center'>
+                    <button id='btnSubmit' class='btn submit'>Tweet ?</button>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td style="width:450px;">
+              <button id='btnLoad' class="button hidden btn">Load Tweets</button>
+              <div class='tweets'>
+                
+              </div>
+            </td>
+          </tr>
+        </table>
+        
+      </div>
+      
+    </section>
+  </body>
+</html>

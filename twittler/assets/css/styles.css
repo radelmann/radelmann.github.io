@@ -1,0 +1,282 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+/*
+========================================
+Custom styles
+========================================
+*/
+body {
+background: #293f50;
+color: #888;
+font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.logo {
+color:#FFF;
+}
+/*
+========================================
+Clearfix
+========================================
+*/
+.group:before,
+.group:after {
+content: "";
+display: table;
+}
+.group:after {
+clear: both;
+}
+.group {
+clear: both;
+*zoom: 1;
+}
+/*
+========================================
+Rows
+========================================
+*/
+.row,
+.row-alt {
+min-width: 960px;
+margin-left:auto;
+margin-right:auto;
+}
+.row {
+background: #fff;
+padding: 20px 0 44px 0;
+}
+.row-alt {
+background: #cbe2c1;
+background: -webkit-linear-gradient(to right, #a1d3b0, #f6f1d3);
+background:    -moz-linear-gradient(to right, #a1d3b0, #f6f1d3);
+background:         linear-gradient(to right, #a1d3b0, #f6f1d3);
+padding: 44px 0 22px 0;
+}
+/*
+========================================
+Typography
+========================================
+*/
+h1, h2, h3, h4 {
+color: #648880;
+}
+h1, h3, h4, h5 {
+margin-bottom: 15px;
+}
+h1 {
+font-size: 44px;
+line-height: 54px;
+}
+h2 {
+font-size: 24px;
+line-height: 44px;
+}
+h3 {
+font-size: 21px;
+}
+h4 {
+font-size: 18px;
+}
+h5 {
+color: #a9b2b9;
+font-size: 14px;
+font-weight: 400;
+text-transform: uppercase;
+}
+strong {
+font-weight: 400;
+}
+cite,
+em {
+font-style: italic;
+}
+/*
+========================================
+Links
+========================================
+*/
+a {
+color: #648880;
+text-decoration: none;
+font-weight: 500;
+}
+a:hover {
+color: #a9b2b9;
+}
+p a {
+border-bottom: 1px solid #dfe2e5;
+}
+/*.primary-header a,
+.primary-footer a {
+color: #fff;
+}
+.primary-header a:hover,
+.primary-footer a:hover {
+color: #648880;
+}*/
+/*
+========================================
+Buttons
+========================================
+*/
+.btn {
+width:100%;
+border-radius: 5px;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-weight: 400;
+letter-spacing: .5px;
+margin: 0;
+text-transform: uppercase;
+}
+.btn {
+border: 0;
+background: #648880;
+padding: 11px 30px;
+font-size: 14px;
+}
+.btn:hover {
+background: #77a198;
+}
+.btn-alt {
+border: 1px solid #fff;
+padding: 10px 30px;
+}
+.btn-alt:hover {
+background: #fff;
+color: #648880;
+}
+/*
+========================================
+Primary header
+========================================
+*/
+.logo {
+float: left;
+font-size: 60px;
+font-weight: 100;
+letter-spacing: .5px;
+line-height: 44px;
+padding:10px 0 10px 0;
+text-transform: uppercase;
+}
+/*
+========================================
+Primary footer
+========================================
+*/
+.primary-footer {
+color: #648880;
+font-size: 14px;
+padding-bottom: 44px;
+padding-top: 44px;
+}
+.primary-footer small {
+float: left;
+font-weight: 400;
+}
+.hidden {
+display: none;
+}
+
+.container {
+width:800px;
+margin-right: auto;
+margin-left: auto;
+}
+.users {
+margin-right:30px;
+margin-bottom: 30px;
+}
+.user {
+padding:5px;
+}
+.users-header {
+background-color: #293f50;
+width:100%;
+}
+.tweets {
+}
+.tweet {
+border: thin solid lightgray;
+margin-top:10px;
+padding:5px 5px;
+border-radius: 5px;
+}
+
+textarea {
+border: thin solid lightgray;
+border-radius: 5px;
+font-size: 14px;
+color: #888;
+}
+
+.time {
+text-align: right;
+font-size: 12px;
+}
+
+.submit {
+width:150px;
+}
+.tweetInput {
+width:150px;
+}
+
+.logoImg {
+  height:60px;
+  margin-bottom:-6px;
+  margin-right:10px;
+}
+.ui-tooltip {
+  font-size: 12px !important;
+  font-family: "Lato", "Open Sans", "Helvetica Neue" !important;
+  color:#888 !important;
+}
