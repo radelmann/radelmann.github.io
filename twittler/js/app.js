@@ -2,14 +2,8 @@ $(document).ready(function() {
   $(document).tooltip({
     track: true
   });
-
-  initPage();
-
-  addEventHandlers();
-
-  var interval = setInterval(updateButtonText, 3000);
-
-  function initPage() {
+  
+  var initPage = function() {
     //load initial tweets
     var index = streams.home.length - 1;
     while (index >= 0) {
@@ -28,7 +22,7 @@ $(document).ready(function() {
     addTweetFilterHandler();
   }
 
-  function addEventHandlers() {
+  var addEventHandlers = function() {
     $('#btnSubmit').on('click', function() {
       if ($('#btnSubmit').text() === 'Tweet ?') {
         $('#tweetInput').val('');
@@ -58,7 +52,7 @@ $(document).ready(function() {
     });
   }
 
-  function addTweetFilterHandler() {
+  var addTweetFilterHandler = function() {
     $('.user').on('click', function() {
       filterTweets(this.innerHTML);
     });
@@ -68,19 +62,9 @@ $(document).ready(function() {
     });
   }
 
-  function insertTweet(tweet) {
+  var insertTweet = function(tweet) {
     tweet['timeDiff'] = getTimeDiff(tweet.created_at);
-
-    var options = {
-      weekday: "long",
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    };
-
-    tweet['longDate'] = tweet.created_at.toLocaleTimeString("en-us", options);
+    tweet['longDate'] = formatLongDate(tweet.created_at);
     tweet.cssClass = 'tweet hidden ' + tweet.user;
     parseHashtag(tweet);
 
@@ -91,7 +75,7 @@ $(document).ready(function() {
     $tweet.slideDown();
   }
 
-  function parseHashtag(tweet) {
+  var parseHashtag = function(tweet) {
     if (tweet.message.split('').indexOf('#') !== -1) {
       var message = tweet.message.split('');
       var hashtag = message.splice(message.indexOf('#'));
@@ -100,7 +84,7 @@ $(document).ready(function() {
     }
   }
 
-  function filterTweets(filter) {
+  var filterTweets = function(filter) {
     if (filter === '@all') {
       $('.tweet').show(); //show all
       updatePageTitle(filter);
@@ -111,7 +95,7 @@ $(document).ready(function() {
     }
   }
 
-  function updateButtonText() {
+  var updateButtonText = function() {
     var newCount = getNewTweetCount();
     if (newCount > 0) {
       $('.button').slideDown();
@@ -120,15 +104,15 @@ $(document).ready(function() {
     }
   }
 
-  function getNewTweetCount() {
+  var getNewTweetCount = function() {
     return streams.home.length - $('.tweets > div').length;
   }
 
-  function resetPageTitle() {
+  var resetPageTitle = function() {
     document.title = 'Twitter';
   }
 
-  function updatePageTitle(filter) {
+  var updatePageTitle = function(filter) {
     //prepend new tweets
     var title = '';
 
@@ -147,7 +131,7 @@ $(document).ready(function() {
     document.title = title;
   }
 
-  function updateTimeDiff() {
+  var updateTimeDiff = function() {
     //loop through tweets update time diff
     $('.tweets').children('div').each(function(index) {
       var created_at = $(this).find('.time').attr('data-createdAt');
@@ -158,19 +142,20 @@ $(document).ready(function() {
 
   //basic template engine
   //https://github.com/trix/nano
-  function nano(template, data) {
+  var nano = function(template, data) {
     return template.replace(/\{([\w\.]*)\}/g, function(str, key) {
       var keys = key.split("."),
         v = data[keys.shift()];
-      for (i = 0, l = keys.length; i < l; _i++) v = v[this];
+      for (i = 0, l = keys.length; i < l; i++) v = v[this];
       return (typeof v !== "undefined" && v !== null) ? v : "";
     });
   };
 
-  //display time as 1 Days || 5 hours || 19 mins || just now -> Hover for full Date 
-  function getTimeDiff(date) {
+  var getTimeDiff = function(date) {
+    //input: js date object
+    //output: returns how long ago the input occured in a user friendly format
     var now = new Date().getTime();
-    var ms = (now - date.getTime()); // milliseconds between now & date
+    var ms = (now - date.getTime()); 
     var days = Math.round(ms / 86400000); // days
     var hrs = Math.round((ms % 86400000) / 3600000); // hours
     var mins = Math.round(((ms % 86400000) % 3600000) / 60000); // minutes
@@ -185,4 +170,23 @@ $(document).ready(function() {
       return 'just now'
     }
   }
+
+  var formatLongDate = function(date) {
+    //input: js date object
+    //output: user friendly long date string, eg: Monday, Oct 26, 2015, 3:11 PM
+    var options = {
+      weekday: "long",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    };
+
+    return date.toLocaleTimeString("en-us", options);
+  }
+  
+  initPage();
+  addEventHandlers();
+  var interval = setInterval(updateButtonText, 3000);
 });
