@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <link href='assets/css/bass.css' type='text/css' rel='stylesheet' />
+    <link href='assets/css/style.css' type='text/css' rel='stylesheet' />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="js/jquery.js"></script>
     <script src="js/query-ui.js"></script>
@@ -10,43 +13,44 @@
     <title>Twittler</title>
     <link rel="shortcut icon" href="https://www.twitter.com/favicon.ico">
   </head>
-  <body>
-    <header class="header container group">
-      <h1 class="logo"><img src="assets/images/twitter-logo-cutout.png" class='logoImg'>Twittler</h1>
-    </header>
-    <section class="row">
-      <div class="container">
-        
-        <table>
-          <tr>
-            <td valign='top' style='width:200px;'>
+  <body class='documentation'>
+    <div class='fixed' style='height:100px;width:100%;background: #293f50;z-index:2;'>
+      <div style='max-width: 64em;margin-left: auto;margin-right: auto;'>
+        <h1 class="logo"><img src="assets/images/twitter-logo-cutout.png" class='logoImg'>Twittler</h1>
+      </div>
+    </div>
+    <div class='clearfix container'>
+      <div class='clearfix md-mxn2'>
+        <div style='margin-top:110px;'class='fixed md-show fix-3 overflow-auto max-height-100'>
+          <div class='py1 px2'>
+            
+            <div class='left-col'>
               <div class='users'>
-              </div>
-
-              <table class='tweetPrompt'>
-                <tr>
-                  <td>
-                    <textarea id='tweetInput' placeholder="What's on your mind?" rows=10 class='hidden' type="textbox"></textarea>
-                  </td>
-                </tr>
-                <tr>
-                  <td align='center'>
-                    <button id='btnSubmit' class='btn submit'>Tweet ?</button>
-                  </td>
-                </tr>
-              </table>
-            </td>
-            <td style="width:450px;">
-              <button id='btnLoad' class="button hidden btn">Load Tweets</button>
-              <div class='tweets'>
                 
               </div>
-            </td>
-          </tr>
-        </table>
-        
+              <div class="tweetPrompt">
+                <textarea id='tweetInput' placeholder="What's on your mind?" rows=10 class='hidden' type="textbox"></textarea>
+                <button id='btnSubmit' class='btn submit'>Tweet ?</button>
+              </div>
+            </div>
+            
+            
+          </div>
+        </div>
+        <div style='margin-top:110px' class='fix-margin-3'>
+          <div class='px2'>
+            
+            <div style="width:450px;">
+              
+              <button id='btnLoad' class="load fixed button hidden btn">Load Tweets</button>
+              
+              <div class='clearfix tweets'>
+                
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
-    </section>
+    </div>
   </body>
 </html>
